@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="eqVol — a free macOS menu-bar app that gives HDMI displays a working volume control. Virtual audio device, clock-locked varispeed engine, Boost up to 16x. Keyboard volume keys, slider, and osascript all work. No CEC needed. Universal (Apple Silicon + Intel), notarized. No ads, no tracking.">
+<meta name="keywords" content="eqVol, HDMI volume, macOS volume control, virtual audio device, CoreAudio, DELL U3818DW, monitor volume, CEC">
+<title>eqVol — HDMI Volume for the Mac</title>
+<link rel="icon" type="image/png" href="images/eqvol-icon-512.png">
+<LINK REL=StyleSheet HREF="../adblink.css" TYPE="text/css" MEDIA=screen>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B67VTTJQ1L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-B67VTTJQ1L');
+</script>
+
+<style>
+  /* eqVol overrides within the adblink.css layout */
+  .inner-left {
+    font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    color: #1a1a2e;
+    background: #ffffff;
+    border: #d0d7de 1px solid;
+    padding: 24px 28px;
+  }
+  .inner-right {
+    font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    border: none;
+    padding: 0 0 0 8px;
+    min-height: 60px;
+  }
+
+  /* Typography */
+  .eq-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .eq-header img { width: 64px; height: 64px; border-radius: 14px; flex-shrink: 0; }
+  .eq-header h1 { font-size: 2rem; font-weight: 800; color: #0b1220; margin: 0; letter-spacing: -0.5px; }
+  .eq-header .eq-sub { font-size: 1.05rem; color: #4a5568; font-weight: 500; margin: 0; }
+
+  /* Intro */
+  .eq-intro { font-size: 1.02rem; line-height: 1.65; color: #2d3748; max-width: 640px; margin: 0 0 28px; }
+
+  /* Section headings */
+  .eq-section-heading {
+    font-size: 1.25rem; font-weight: 700; color: #0b1220;
+    border-bottom: 2px solid #007aff; padding-bottom: 6px;
+    margin: 32px 0 18px;
+  }
+
+  /* Feature grid */
+  .eq-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .eq-feat {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+  }
+  .eq-feat .eq-feat-ico {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: #007aff;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-top: 1px;
+  }
+  .eq-feat .eq-feat-body h4 { font-size: 0.92rem; font-weight: 700; color: #0b1220; margin: 0 0 2px; }
+  .eq-feat .eq-feat-body p { font-size: 0.82rem; color: #4a5568; margin: 0; line-height: 1.4; }
+
+  /* Download tiles */
+  .eq-dl-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 12px; }
+  .eq-dl {
+    flex: 1;
+    min-width: 140px;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .eq-dl img { width: 48px; height: 48px; margin-bottom: 8px; border-radius: 10px; }
+  .eq-dl .eq-dl-os { font-weight: 700; font-size: 0.95rem; color: #0b1220; margin-bottom: 2px; }
+  .eq-dl .eq-dl-size { font-size: 0.78rem; color: #718096; margin-bottom: 10px; }
+  .eq-dl a {
+    display: inline-block;
+    background: #007aff;
+    color: #fff;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition: background 0.12s;
+  }
+  .eq-dl a:hover { background: #005ecb; }
+
+  /* Requirements note */
+  .eq-note { font-size: 0.9rem; color: #4a5568; margin: 14px 0 18px; line-height: 1.5; max-width: 640px; }
+  .eq-note b { color: #0b1220; }
+
+  /* About / footer */
+  .eq-about { text-align: center; margin: 28px 0 18px; }
+  .eq-about h3 { font-size: 1.1rem; font-weight: 700; color: #0b1220; margin-bottom: 6px; }
+  .eq-about p { font-size: 0.9rem; color: #4a5568; max-width: 520px; margin: 4px auto; line-height: 1.5; }
+  .eq-disclaimer { font-size: 0.78rem; color: #a0aec0; text-align: center; margin-top: 18px; padding-top: 14px; border-top: 1px solid #e2e8f0; }
+  .eq-home { text-align: center; margin-top: 14px; }
+  .eq-home a { color: #007aff; font-weight: 600; font-size: 0.9rem; }
+
+  @media (max-width: 600px) {
+    .eq-features { grid-template-columns: 1fr; }
+    .eq-dl-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="float-left-area">
+<div class="inner-left">
+
+<!-- AdSense top banner -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-3267309331393020"
+     data-ad-slot="9731222591"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>&nbsp;</p>
+
+<!-- HEADER -->
+<div class="eq-header">
+  <img src="images/eqvol-icon-512.png" alt="eqVol icon">
+  <div>
+    <h1>Jocala eqVol</h1>
+    <p class="eq-sub">HDMI Volume for the Mac</p>
+  </div>
+</div>
+
+<!-- INTRO -->
+<p class="eq-intro">
+  macOS treats most HDMI displays as fixed-volume audio outputs: the volume
+  keys do nothing, and there is no CEC to bridge the gap. eqVol publishes a
+  virtual audio device, routes it through a small clock-locked engine, and
+  mirrors macOS volume into your display over HDMI &mdash; so the keyboard
+  volume keys, a menu-bar slider, and <code>osascript</code> all just work.
+  Free, notarized, and universal (Apple&nbsp;Silicon + Intel). No ads, no
+  tracking, nothing leaves your Mac.
+</p>
+
+<!-- FEATURES -->
+<h3 class="eq-section-heading">Features</h3>
+<div class="eq-features">
+  <div class="eq-feat">
+    <div class="eq-feat-ico">&#10003;</div>
+    <div class="eq-feat-body">
+      <h4>Working HDMI Volume</h4>
+      <p>F-keys, the menu-bar slider, and <code>osascript</code> control your display's audio.</p>
+    </div>
+  </div>
+  <div class="eq-feat">
+    <div class="eq-feat-ico">&#10003;</div>
+    <div class="eq-feat-body">
+      <h4>Virtual Audio Device</h4>
+      <p>A CoreAudio device (e.g. &ldquo;DELL U3818DW (eqVol)&rdquo;) appears as a real output; apps just play to it.</p>
+    </div>
+  </div>
+  <div class="eq-feat">
+    <div class="eq-feat-ico">&#10003;</div>
+    <div class="eq-feat-body">
+      <h4>Clock-Locked Engine</h4>
+      <p>PID-controlled varispeed keeps the display's clock locked to the Mac's &mdash; no drift, no crackle.</p>
+    </div>
+  </div>
+  <div class="eq-feat">
+    <div class="eq-feat-ico">&#10003;</div>
+    <div class="eq-feat-body">
+      <h4>Boost up to 16&times;</h4>
+      <p>Digital gain for quiet sources, persisted across launches. Ceiling kept sane.</p>
+    </div>
+  </div>
+  <div class="eq-feat">
+    <div class="eq-feat-ico">&#10003;</div>
+    <div class="eq-feat-body">
+      <h4>Menu-Bar Control</h4>
+      <p>Speaker icon with slider, Boost, and Mute; starts at login. No Dock icon, no window.</p>
+    </div>
+  </div>
+  <div class="eq-feat">
+    <div class="eq-feat-ico">&#10003;</div>
+    <div class="eq-feat-body">
+      <h4>Private &amp; Silent</h4>
+      <p>Captures its own output mix only &mdash; no microphone use, no orange mic indicator, no network.</p>
+    </div>
+  </div>
+</div>
+
+<!-- GET EQVOL -->
+<h3 class="eq-section-heading">Get eqVol</h3>
+
+<p class="eq-note">
+  <b>macOS 14.2 or newer</b>, Apple&nbsp;Silicon or Intel. The download is a
+  signed and notarized disk image; the installer inside asks for your
+  administrator password once (the virtual audio driver installs system-wide),
+  and macOS may ask to allow audio capture &mdash; click <b>Allow</b>.
+</p>
+
+<div class="eq-dl-row">
+  <div class="eq-dl">
+    <img src="images/eqvol-icon-512.png" alt="macOS">
+    <div class="eq-dl-os">macOS</div>
+    <div class="eq-dl-size">0.8 MB &middot; .dmg</div>
+    <a href="eqvol.1.0.dmg">Download</a>
+  </div>
+</div>
+
+<div class="eq-about">
+  <h3>How it works</h3>
+  <p>
+    eqVol installs a virtual audio driver, makes it the default output, and
+    taps the device's output mix (never a microphone). A varispeed engine
+    compensates for clock drift between your Mac and the display, then writes
+    volume and mute changes straight into the signal path &mdash; giving any
+    HDMI monitor the volume control it never had.
+  </p>
+</div>
+
+<div class="eq-disclaimer">
+  &copy; 2026 Jocala Software &middot; eqVol driver adapted from eqMac v1.3.2 (GPLv3) &middot; see LICENSE in the disk image
+</div>
+
+<div class="eq-home">
+  <a href="../index.html">jocala.com</a>
+</div>
+
+</div>
+</div>
+
+<div class="float-right-area">
+<div class="inner-right">
+
+<!-- AdSense sidebar ad 1 -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-3267309331393020"
+     data-ad-slot="6199270995"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>
+
+<!-- AdSense sidebar ad 2 -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-3267309331393020"
+     data-ad-slot="8358831794"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div>
+</div>
+
+<div class="clear-floated"></div>
+
+</body>
+</html>

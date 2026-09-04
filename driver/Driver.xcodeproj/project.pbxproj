@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		781FD6D126DADCE7006CAAEA /* EQVClients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781FD6D026DADCE7006CAAEA /* EQVClients.swift */; };
+		7823A94B26D8158E004BABC6 /* Atomics in Frameworks */ = {isa = PBXBuildFile; productRef = 7823A94A26D8158E004BABC6 /* Atomics */; };
+		7838E35826C898D60039D466 /* EQVStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7838E35726C898D60039D466 /* EQVStream.swift */; };
+		7838E35B26C898F30039D466 /* EQVControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7838E35A26C898F30039D466 /* EQVControl.swift */; };
+		7838E36726C9CFA10039D466 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7838E36626C9CFA10039D466 /* Helpers.swift */; };
+		78A8049E26C4866D0021981C /* EQVDriverBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A8049D26C4866D0021981C /* EQVDriverBridge.m */; };
+		78A804D726C4903E0021981C /* EQVDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A804D626C4903E0021981C /* EQVDriver.swift */; };
+		78A804DD26C563860021981C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A804DC26C563860021981C /* Constants.swift */; };
+		78A804E026C5676D0021981C /* EQVPlugIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A804DF26C5676D0021981C /* EQVPlugIn.swift */; };
+		78A804EA26C596080021981C /* EQVDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A804E926C596080021981C /* EQVDevice.swift */; };
+		78E8F7D526D12C0100B6B969 /* EQVObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E8F7D426D12C0100B6B969 /* EQVObject.swift */; };
+		78E8F7D926D166D800B6B969 /* EQVInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E8F7D826D166D800B6B969 /* EQVInterface.swift */; };
+		78F28AD8274D2A940005474D /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 78F28AD7274D2A940005474D /* Shared */; };
+		E01A29F82456E50500369F41 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01A29F72456E50500369F41 /* CoreFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1CB8B3641BBBB78D000E2DD1 /* eqvol.driver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eqvol.driver; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CB8B3681BBBB78D000E2DD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		781FD6D026DADCE7006CAAEA /* EQVClients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQVClients.swift; sourceTree = "<group>"; };
+		7838E35726C898D60039D466 /* EQVStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQVStream.swift; sourceTree = "<group>"; };
+		7838E35A26C898F30039D466 /* EQVControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQVControl.swift; sourceTree = "<group>"; };
+		7838E36626C9CFA10039D466 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		785E4F82274C7478003D6DB0 /* Shared */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Shared; path = ../Shared; sourceTree = "<group>"; };
+		785E4F85274C75B5003D6DB0 /* Shared */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Shared; path = ../Shared; sourceTree = "<group>"; };
+		78A8049D26C4866D0021981C /* EQVDriverBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EQVDriverBridge.m; sourceTree = "<group>"; };
+		78A804A026C486820021981C /* EQVDriverBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EQVDriverBridge.h; sourceTree = "<group>"; };
+		78A804D526C4903E0021981C /* EQVDriver-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EQVDriver-Bridging-Header.h"; sourceTree = "<group>"; };
+		78A804D626C4903E0021981C /* EQVDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQVDriver.swift; sourceTree = "<group>"; };
+		78A804DC26C563860021981C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		78A804DF26C5676D0021981C /* EQVPlugIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQVPlugIn.swift; sourceTree = "<group>"; };
+		78A804E926C596080021981C /* EQVDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQVDevice.swift; sourceTree = "<group>"; };
+		78E8F7D426D12C0100B6B969 /* EQVObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQVObject.swift; sourceTree = "<group>"; };
+		78E8F7D826D166D800B6B969 /* EQVInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQVInterface.swift; sourceTree = "<group>"; };
+		E01A29F72456E50500369F41 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CB8B3611BBBB78D000E2DD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E01A29F82456E50500369F41 /* CoreFoundation.framework in Frameworks */,
+				7823A94B26D8158E004BABC6 /* Atomics in Frameworks */,
+				78F28AD8274D2A940005474D /* Shared in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1CB8B3591BBBB69C000E2DD1 = {
+			isa = PBXGroup;
+			children = (
+				785E4F81274C7478003D6DB0 /* Packages */,
+				1CB8B3661BBBB78D000E2DD1 /* Source */,
+				1CB8B3651BBBB78D000E2DD1 /* Products */,
+				1CB8B3671BBBB78D000E2DD1 /* Supporting Files */,
+				E00879C7237EC3D3006AACF8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1CB8B3651BBBB78D000E2DD1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CB8B3641BBBB78D000E2DD1 /* eqvol.driver */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CB8B3661BBBB78D000E2DD1 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				78A8049C26C486350021981C /* Bridge */,
+				78A804DC26C563860021981C /* Constants.swift */,
+				78A804D626C4903E0021981C /* EQVDriver.swift */,
+				78E8F7D826D166D800B6B969 /* EQVInterface.swift */,
+				78E8F7D426D12C0100B6B969 /* EQVObject.swift */,
+				78A804DF26C5676D0021981C /* EQVPlugIn.swift */,
+				78A804E926C596080021981C /* EQVDevice.swift */,
+				7838E35726C898D60039D466 /* EQVStream.swift */,
+				7838E35A26C898F30039D466 /* EQVControl.swift */,
+				781FD6D026DADCE7006CAAEA /* EQVClients.swift */,
+				7838E36626C9CFA10039D466 /* Helpers.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		1CB8B3671BBBB78D000E2DD1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1CB8B3681BBBB78D000E2DD1 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		785E4F81274C7478003D6DB0 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				785E4F82274C7478003D6DB0 /* Shared */,
+				785E4F85274C75B5003D6DB0 /* Shared */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		78A8049C26C486350021981C /* Bridge */ = {
+			isa = PBXGroup;
+			children = (
+				78A804D526C4903E0021981C /* EQVDriver-Bridging-Header.h */,
+				78A8049D26C4866D0021981C /* EQVDriverBridge.m */,
+				78A804A026C486820021981C /* EQVDriverBridge.h */,
+			);
+			path = Bridge;
+			sourceTree = "<group>";
+		};
+		E00879C7237EC3D3006AACF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E01A29F72456E50500369F41 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CB8B3631BBBB78D000E2DD1 /* eqVolDriver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CB8B3691BBBB78D000E2DD1 /* Build configuration list for PBXNativeTarget "eqVolDriver" */;
+			buildPhases = (
+				1CB8B3601BBBB78D000E2DD1 /* Sources */,
+				1CB8B3611BBBB78D000E2DD1 /* Frameworks */,
+				1CB8B3621BBBB78D000E2DD1 /* Resources */,
+				7823A93C26D597F6004BABC6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = eqVolDriver;
+			packageProductDependencies = (
+				7823A94A26D8158E004BABC6 /* Atomics */,
+				78F28AD7274D2A940005474D /* Shared */,
+			);
+			productName = EQVDriver;
+			productReference = 1CB8B3641BBBB78D000E2DD1 /* eqvol.driver */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CB8B35A1BBBB69C000E2DD1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EQV_;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = Jocala;
+				TargetAttributes = {
+					1CB8B3631BBBB78D000E2DD1 = {
+						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 1240;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 1CB8B35D1BBBB69C000E2DD1 /* Build configuration list for PBXProject "Driver" */;
+			compatibilityVersion = "Xcode 6.3";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = 1CB8B3591BBBB69C000E2DD1;
+			packageReferences = (
+				7823A94926D8158E004BABC6 /* XCRemoteSwiftPackageReference "swift-atomics" */,
+				78E0A0A000000000000000A1 /* XCLocalSwiftPackageReference "shared" */,
+			);
+			productRefGroup = 1CB8B3651BBBB78D000E2DD1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CB8B3631BBBB78D000E2DD1 /* eqVolDriver */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CB8B3621BBBB78D000E2DD1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7823A93C26D597F6004BABC6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"eqvol driver install handled manually\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CB8B3601BBBB78D000E2DD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78A8049E26C4866D0021981C /* EQVDriverBridge.m in Sources */,
+				7838E35826C898D60039D466 /* EQVStream.swift in Sources */,
+				78A804D726C4903E0021981C /* EQVDriver.swift in Sources */,
+				7838E36726C9CFA10039D466 /* Helpers.swift in Sources */,
+				78A804E026C5676D0021981C /* EQVPlugIn.swift in Sources */,
+				78A804EA26C596080021981C /* EQVDevice.swift in Sources */,
+				78E8F7D526D12C0100B6B969 /* EQVObject.swift in Sources */,
+				78E8F7D926D166D800B6B969 /* EQVInterface.swift in Sources */,
+				7838E35B26C898F30039D466 /* EQVControl.swift in Sources */,
+				78A804DD26C563860021981C /* Constants.swift in Sources */,
+				781FD6D126DADCE7006CAAEA /* EQVClients.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1CB8B35E1BBBB69C000E2DD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NULLABLE_TO_NONNULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"CoreAudio_Debug=1",
+					"CoreAudio_UseSysLog=1",
+					"CoreAudio_StopOnAssert=1",
+					"CoreAudio_ThreadStampMessages=0",
+				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+				WARNING_CFLAGS = "-Wpartial-availability";
+			};
+			name = Debug;
+		};
+		1CB8B35F1BBBB69C000E2DD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NULLABLE_TO_NONNULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=0",
+					"CoreAudio_Debug=0",
+					"CoreAudio_UseSysLog=1",
+					"CoreAudio_StopOnAssert=0",
+					"CoreAudio_ThreadStampMessages=0",
+				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+				WARNING_CFLAGS = "-Wpartial-availability";
+			};
+			name = Release;
+		};
+		1CB8B36A1BBBB78D000E2DD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_ASSIGN_ENUM = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.3.1;
+				DEAD_CODE_STRIPPING = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Audio/Plug-Ins/HAL";
+				IPHONEOS_DEPLOYMENT_TARGET = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+					"/Library/Audio/Plug-Ins/HAL/eqvol.driver/Contents/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 1.3.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CODE_SIGN_FLAGS = "";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jocala.eqvol.driver;
+				PRODUCT_NAME = eqvol.driver;
+				PRODUCT_MODULE_NAME = EQVDriver;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DISABLE_SAFETY_CHECKS = NO;
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = on;
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/Bridge/EQVDriver-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = "";
+				WARNING_CFLAGS = "";
+				WATCHOS_DEPLOYMENT_TARGET = "";
+				WRAPPER_EXTENSION = driver;
+			};
+			name = Debug;
+		};
+		1CB8B36B1BBBB78D000E2DD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_ASSIGN_ENUM = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.3.1;
+				DEAD_CODE_STRIPPING = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JZA6C97KJA;
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Audio/Plug-Ins/HAL";
+				IPHONEOS_DEPLOYMENT_TARGET = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+					"/Library/Audio/Plug-Ins/HAL/eqvol.driver/Contents/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 1.3.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CODE_SIGN_FLAGS = "--timestamp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jocala.eqvol.driver;
+				PRODUCT_NAME = eqvol.driver;
+				PRODUCT_MODULE_NAME = EQVDriver;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DISABLE_SAFETY_CHECKS = NO;
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = on;
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/Bridge/EQVDriver-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = "";
+				WARNING_CFLAGS = "";
+				WATCHOS_DEPLOYMENT_TARGET = "";
+				WRAPPER_EXTENSION = driver;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CB8B35D1BBBB69C000E2DD1 /* Build configuration list for PBXProject "Driver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CB8B35E1BBBB69C000E2DD1 /* Debug */,
+				1CB8B35F1BBBB69C000E2DD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CB8B3691BBBB78D000E2DD1 /* Build configuration list for PBXNativeTarget "eqVolDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CB8B36A1BBBB78D000E2DD1 /* Debug */,
+				1CB8B36B1BBBB78D000E2DD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7823A94926D8158E004BABC6 /* XCRemoteSwiftPackageReference "swift-atomics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-atomics.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		78E0A0A000000000000000A1 /* XCLocalSwiftPackageReference "shared" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../shared;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7823A94A26D8158E004BABC6 /* Atomics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7823A94926D8158E004BABC6 /* XCRemoteSwiftPackageReference "swift-atomics" */;
+			productName = Atomics;
+		};
+		78F28AD7274D2A940005474D /* Shared */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Shared;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1CB8B35A1BBBB69C000E2DD1 /* Project object */;
+}
