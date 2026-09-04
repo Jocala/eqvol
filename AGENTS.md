@@ -142,6 +142,10 @@ sudo killall coreaudiod
   `images/` live inside the product dir on production (glucocalc/tarot
   convention). debian's `/usr/local/bin/publish` is obsolete (old host,
   216.238.146.122) — do not use.
+- GitHub: `https://github.com/Jocala/eqvol` (public mirror, `origin`).
+  `./gh-deploy.sh` (macOS) pushes `main` and creates/updates the GitHub
+  release `v<version>` with `packages/eqvol.<version>.dmg` as the asset
+  (version from `Info.plist`). Run it after `./package-eqvol.sh`.
 
 The bridge (`driver/Source/Bridge/EQVDriverBridge.m`) imports the generated
 Swift header `EQVDriver-Swift.h`, produced from `PRODUCT_MODULE_NAME=EQVDriver`

@@ -3,6 +3,8 @@
 Standalone menu-bar volume control for the Mac mini's HDMI display (DELL U3818DW),
 which has no volume control and no CEC.
 
+Source: https://github.com/Jocala/eqvol
+
 ## What runs
 
 1. **Virtual audio device** — `/Library/Audio/Plug-Ins/HAL/eqvol.driver`,
