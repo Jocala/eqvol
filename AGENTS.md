@@ -115,14 +115,23 @@ sudo killall coreaudiod
 
 ## Packaging & website
 
-- `./package-eqvol.sh` — builds everything, stages a DMG (app, launcher,
-  driver, `packaging/install.sh`, `packaging/README.txt`, agent plist,
-  LICENSE), `hdiutil` → `packages/eqvol.1.0.dmg`, notarizes with
-  `notarytool --keychain-profile adblink-notary --wait`, staples. Verify:
-  `xcrun stapler validate packages/eqvol.1.0.dmg`, `spctl -a` on the app.
-- Fresh installs: mount DMG → `sudo ./install.sh` (driver →
-  `/Library/Audio/Plug-Ins/HAL`, app + launcher →
-  `/Library/Application Support/eqVol`, LaunchAgent template → user domain).
+- `./package-eqvol-pkg.sh` — canonical pipeline: build → component pkg
+  (`pkgbuild`, preinstall stops the engine + removes old driver/app,
+  postinstall fixes root ownership, restarts coreaudiod, bootstraps the
+  agent for the console user) → signed distribution pkg (`productbuild`,
+  Developer ID Installer cert — Xcode → Settings… → Apple Accounts →
+  Manage Certificates) → notarize/staple (`notarytool --keychain-profile
+  adblink-notary --wait`) → DMG (`Install eqVol.pkg` + `README.txt` +
+  `uninstall-eqvol.sh`, no loose app bundle) → notarize/staple →
+  `packages/eqvol.1.1.dmg`. Verify: `pkgutil --check-signature`,
+  `spctl -a -t install` on the stapled pkg, `xcrun stapler validate` the DMG.
+- `./package-eqvol.sh` — legacy loose-bits DMG (`packages/eqvol.<ver>-loose.dmg`,
+  distinct name so it never collides with the canonical artifact);
+  `packaging/install.sh` remains the Terminal fallback.
+- Fresh installs: open the DMG → run `Install eqVol.pkg` (password once;
+  the pkg replaces any stray drag-installed `/Applications` copy with the
+  versioned build). Uninstall: `sudo ./uninstall-eqvol.sh` from the DMG
+  (also `pkgutil --forget com.jocala.eqvol.pkg`).
 - Website: product page at
   `debian:/zstore/source/www/jocala.com/eqvol/` (`index.html` + `images/`
   + `eqvol.1.0.dmg`), source of the page in `web/`. Test view:

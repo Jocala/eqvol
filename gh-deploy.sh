@@ -36,8 +36,8 @@ git push origin ":refs/tags/$TAG" 2>/dev/null || true
 echo "Creating release..."
 gh release create "$TAG" "$DMG" \
   --title "eqVol ${VERSION}" \
-  --notes "Notarized macOS disk image (Apple Silicon + Intel). Requires macOS 14.2+.
-Install: mount the DMG and run \`sudo ./install.sh\`.
+  --notes "Signed installer for macOS 14.2+ (Apple Silicon + Intel), notarized.
+Install: open the DMG and run Install eqVol.pkg (administrator password required).
 See https://www.jocala.com/eqvol/ for details."
 
 echo

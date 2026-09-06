@@ -1,0 +1,13 @@
+eqVol — HDMI Volume for the Mac
+
+This installer sets up eqVol on your Mac:
+
+  EqVol.app            -> /Applications (menu-bar app)
+  virtual audio driver -> /Library/Audio/Plug-Ins/HAL
+  background engine    -> /Library/Application Support/eqVol
+  autostart            -> your LaunchAgents (starts at login)
+
+Your administrator password is required (the audio driver installs
+system-wide). Afterwards, if macOS asks about audio capture, click
+Allow (one time) — eqVol taps only its own virtual device, never a
+microphone.

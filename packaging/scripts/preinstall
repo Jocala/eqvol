@@ -1,0 +1,16 @@
+#!/bin/bash
+# eqVol preinstall (runs as root): stop any running engine so the payload
+# can replace the app, launcher, and driver underneath it.
+set -euo pipefail
+
+CONSOLE_USER="$(stat -f%Su /dev/console 2>/dev/null || true)"
+if [ -n "$CONSOLE_USER" ] && [ "$CONSOLE_USER" != "root" ]; then
+  CONSOLE_UID="$(id -u "$CONSOLE_USER")"
+  launchctl bootout "gui/$CONSOLE_UID/com.jocala.eqvol" 2>/dev/null || true
+fi
+
+# Remove the old driver + support app BEFORE the payload lands (never nest).
+rm -rf "/Library/Audio/Plug-Ins/HAL/eqvol.driver"
+rm -rf "/Library/Application Support/eqVol/EqVol.app"
+
+exit 0

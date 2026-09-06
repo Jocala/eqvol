@@ -1187,9 +1187,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         return
       }
       if newDefault != controller.driverID, newDefault != 0 {
-        // User picked a new output in Sound preferences.
+        // User picked a new output in Sound preferences: adopt it as the
+        // engine target, then route system audio back through the virtual
+        // device. The reclaim trips this callback once more, which the
+        // expectingDefaultReclaim flag swallows.
         self.expectingDefaultReclaim = true
         controller.adoptOutput(device: newDefault)
+        CA.setDefaultOutputDevice(controller.driverID)
       }
     }
     watcher.start()

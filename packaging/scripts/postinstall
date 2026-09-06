@@ -1,0 +1,34 @@
+#!/bin/bash
+# eqVol postinstall (runs as root): ownership, audio server restart,
+# LaunchAgent bootstrap for the console user.
+set -euo pipefail
+
+SUPPORT="/Library/Application Support/eqVol"
+
+# Ownership the AMFI launch constraint requires (see AGENTS.md invariant 13).
+chown root:wheel "$SUPPORT/eqvol-launcher"
+chmod 755 "$SUPPORT/eqvol-launcher"
+
+CONSOLE_USER="$(stat -f%Su /dev/console 2>/dev/null || true)"
+if [ -z "$CONSOLE_USER" ] || [ "$CONSOLE_USER" = "root" ]; then
+  echo "No console user; the LaunchAgent will start eqVol at next login."
+  exit 0
+fi
+CONSOLE_UID="$(id -u "$CONSOLE_USER")"
+GUI="gui/$CONSOLE_UID"
+
+AGENT_DIR="/Users/$CONSOLE_USER/Library/LaunchAgents"
+AGENT="$AGENT_DIR/com.jocala.eqvol.plist"
+mkdir -p "$AGENT_DIR"
+sed "s#__INSTALL_DIR__#$SUPPORT#g" "$SUPPORT/com.jocala.eqvol.plist" > "$AGENT"
+chown "$CONSOLE_USER" "$AGENT"
+chmod 644 "$AGENT"
+
+echo "Restarting coreaudiod..."
+killall coreaudiod 2>/dev/null || true
+sleep 3   # device lookup is one-shot at launch; give the HAL time to publish
+launchctl bootstrap "$GUI" "$AGENT" 2>/dev/null \
+  || launchctl kickstart -k "$GUI/com.jocala.eqvol" 2>/dev/null || true
+
+echo "If macOS asks about audio capture, click Allow (one time)."
+exit 0

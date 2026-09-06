@@ -7,10 +7,13 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-VERSION="1.0"
+VERSION="1.1"
 IDENTITY="Developer ID Application: jeff elkins (9Q77WK7W3R)"
 NOTARY_PROFILE="adblink-notary"
-OUT_DMG="packages/eqvol.$VERSION.dmg"
+# NOTE: the canonical 1.1+ artifact is the signed-installer DMG from
+# package-eqvol-pkg.sh (packages/eqvol.<ver>.dmg). This loose-bits DMG keeps
+# a distinct name so the two never collide; install.sh remains the fallback.
+OUT_DMG="packages/eqvol.$VERSION-loose.dmg"
 VOLNAME="eqVol $VERSION"
 
 # 1. App + launcher (signed universal build)

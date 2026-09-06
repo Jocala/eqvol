@@ -58,9 +58,15 @@ rate 1.0000.
   compiles it to `eqvol-launcher`; it resolves `EqVol.app` next to itself
 - `build.sh`    — universal (arm64 + x86_64) Developer ID signed build
 - `icon/`       — app icon (generic speaker; `make-icon.swift` renders it)
-- `packaging/`  — `install.sh`, `README.txt`, LaunchAgent template for the DMG
-- `package-eqvol.sh` — full pipeline: build → stage → `packages/eqvol.1.0.dmg`
-  → notarize → staple
+- `packaging/` — `install.sh` (Terminal fallback), `README.txt`,
+  LaunchAgent template, `scripts/` (pkg preinstall/postinstall),
+  `welcome.txt` (installer welcome), `uninstall-eqvol.sh` for the DMG
+- `package-eqvol.sh` — legacy loose-bits pipeline: build → stage →
+  `packages/eqvol.<ver>-loose.dmg` → notarize → staple
+- `package-eqvol-pkg.sh` — canonical pipeline: build → signed
+  installer pkg (Developer ID Installer) → notarize/staple →
+  `packages/eqvol.<ver>.dmg` (pkg + README + uninstaller) →
+  notarize/staple
 - `web/`        — product page source (`index.html`), styled after the
   glucocalc page (jocala.com template)
 - `driver/`     — driver source (deployed binary is built from this)
@@ -105,11 +111,14 @@ sudo killall coreaudiod
 
 ## Distribution
 
-- `packages/eqvol.1.0.dmg` — Developer ID signed (app + launcher with
-  hardened runtime, driver with timestamp), notarized (`adblink-notary`
-  keychain profile) and stapled. Contains `EqVol.app`, `eqvol-launcher`,
-  `eqvol.driver`, `install.sh` (sudo driver/app/agent install),
-  `README.txt`, `LICENSE.md`.
+- `packages/eqvol.1.1.dmg` — Developer ID signed installer
+  (`Install eqVol.pkg`: app → /Applications, driver → HAL dir,
+  launcher+engine → root-owned support dir, agent bootstrap), notarized
+  (`adblink-notary` keychain profile) and stapled, wrapped with
+  `README.txt` + `uninstall-eqvol.sh` in a notarized/stapled DMG.
+  The installer needs a Developer ID Installer cert (Xcode →
+  Settings… → Apple Accounts → Manage Certificates); the app/launcher
+  stay on Developer ID Application.
 - Product page: `web/index.html`, staged at
   `debian:/zstore/source/www/jocala.com/eqvol/` with the DMG and `images/`.
   Test view: `http://192.168.1.39/www/jocala.com/eqvol/`. Production push:

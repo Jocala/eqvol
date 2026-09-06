@@ -1,4 +1,4 @@
-eqVol 1.0 — HDMI volume for the Mac
+eqVol 1.1 — HDMI volume for the Mac
 ====================================
 
 macOS treats most HDMI displays as fixed-volume audio outputs: the volume
@@ -17,13 +17,12 @@ Requirements
 
 Install
 -------
-From Terminal, inside the mounted disk image:
-
-      sudo ./install.sh
-
-1. Enter your administrator password when asked.
-2. If macOS asks about audio capture, click Allow (one time).
-3. A speaker icon appears in the menu bar: slider, Boost, Mute, Quit.
+1. Open Install eqVol.pkg and follow the prompts.
+2. Enter your administrator password when asked (the virtual audio
+   driver installs system-wide).
+3. If macOS asks about audio capture, click Allow (one time).
+4. A speaker icon appears in the menu bar: slider, Boost, Mute, Quit.
+   It also starts automatically at login.
 
 Volume works everywhere: keyboard F-keys, the menu-bar slider, and
   osascript -e 'set volume output volume 50'
@@ -40,10 +39,17 @@ The launcher must stay running — do not kill it.
 
 Uninstall
 ---------
+Run uninstall-eqvol.sh from this disk image:
+
+      sudo ./uninstall-eqvol.sh
+
+(equivalent manual steps:)
   launchctl bootout gui/$(id -u)/com.jocala.eqvol
   rm -rf "/Library/Application Support/eqVol" \
          /Library/Audio/Plug-Ins/HAL/eqvol.driver \
-         ~/Library/LaunchAgents/com.jocala.eqvol.plist
+         ~/Library/LaunchAgents/com.jocala.eqvol.plist \
+         /Applications/EqVol.app
+  pkgutil --forget com.jocala.eqvol.pkg
   killall coreaudiod
 
 Notes
