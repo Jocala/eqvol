@@ -132,6 +132,9 @@ sudo killall coreaudiod
   the pkg replaces any stray drag-installed `/Applications` copy with the
   versioned build). Uninstall: `sudo ./uninstall-eqvol.sh` from the DMG
   (also `pkgutil --forget com.jocala.eqvol.pkg`).
+- Release checklist: bump `Info.plist` + script `VERSION`, stamp the web
+  download tile (version + DMG size in `web/index.html`), rebuild +
+  re-verify the DMG, then `gh-deploy.sh` + website publish.
 - Website: product page at
   `debian:/zstore/source/www/jocala.com/eqvol/` (`index.html` + `images/`
   + `eqvol.1.0.dmg`), source of the page in `web/`. Test view:
